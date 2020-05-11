@@ -1,0 +1,66 @@
+<canvas id="canvas" width="600" height="400" style="border: 2px solid black;"></canvas>
+
+<script>
+
+var canvas = document.getElementById('canvas');
+var c = canvas.getContext('2d');
+var W = canvas.width;
+var H = canvas.height;
+
+/*
+kare çizme
+daire çizem
+init
+draw
+*/
+
+//kare draw
+function kare() {
+  this.x=0;
+  this.y=0;
+  this.w=0;
+  this.h=0;
+  this.draw = function() {
+
+    c.fillRect(this.x,this.y,this.w,this.h);
+  }
+}
+//kare draw
+function daire() {
+  this.x=0;
+  this.y=0;
+  this.r=0;
+  this.draw = function() {
+    c.beginPath();
+    c.arc(this.x,this.y,this.r,0,Math.PI*2,true);
+  }
+}
+
+//oyuncu1
+var oyuncu1 = new kare();
+  oyuncu1.x = 10;
+  oyuncu1.y = H/2;
+  oyuncu1.w = 20;
+  oyuncu1.h = 100;
+
+  //oyuncu2
+  var oyuncu2 = new kare();
+    oyuncu2.x = W-30;
+    oyuncu2.y = H/2;
+    oyuncu2.w = 20;
+    oyuncu2.h = 100;
+
+//draw
+function draw() {
+    c.clearRect(0,0,W,H);
+    oyuncu1.draw();
+    oyuncu2.draw();
+
+}
+
+var init = setInterval(draw,10);
+
+
+
+
+</script>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <canvas id="tuval" width="600" height="600" style="border:2px solid;">
+      Bu tarayıcı canvas desteklemiyor
+    </canvas>
+    <script>
+    var tuval = document.getElementById("tuval");
+    var cizim = tuval.getContext("2d");
+    document.addEventListener('keydown',keypress);
+
+    function keypress(event){
+        var key_press = String.fromCharCode(event.keyCode);
+        if(key_press == 'A' && dx>0){
+        dx = dx * -1;
+        }
+        if(key_press == 'D' && dx<0){
+        dx = dx * -1;
+        }
+        if(key_press == 'W' && dy>0){
+        dy = dy * -1;
+        }
+        if(key_press == 'S' && dy<0){
+        dy = dy * -1;
+        }
+    }
+    function gameInıt() {
+
+    }
+    var en = tuval.width;
+    var boy = tuval.height;
+    var x = en/2;
+    var y = boy/2;
+    var dx = 2;
+    var dy = 4;
+    var YKx= 10;
+    var YKy= 10;
+    var dYKx= 5;
+    var dYKy= 4;
+
+    function ziplayantop() {
+      temizle();
+      this.cizim.beginPath();
+      this.cizim.arc(x,y,10,0,2*Math.PI);
+      this.cizim.closePath();
+      this.cizim.fillStyle="#ff0000";
+      x = x + dx;
+      y = y + dy;
+      this.cizim.fill();
+      if (x>en-5||x < 0 ) {
+          dx = -1 * dx;
+      }
+      if (y>boy-5||y < 0) {
+        dy = -1 * dy;
+      }
+    }
+    function temizle(){
+      cizim.beginPath();
+      cizim.fillStyle="#ffffff";
+      cizim.fillRect(0,0,tuval.width,tuval.height);
+      cizim.closePath();
+      cizim.fill();
+      yakantop();
+    }
+    function yakantop() {
+
+      this.cizim.beginPath();
+      this.cizim.arc(YKx,YKy,25,0,2*Math.PI);
+      this.cizim.closePath();
+      this.cizim.fillStyle="#ff0000";
+      YKx = YKx + dYKx;
+      YKy = YKy + dYKy;
+      this.cizim.fill();
+      if (YKx > en-15 || YKx < 15 ) {
+          dYKx = -1 * dYKx;
+      }
+      if (YKy > boy-15 || YKy < 0) {
+        dYKy = -1 * dYKy;
+      }
+    }
+    function game(){
+      yakantop();
+      ziplayantop();
+      contactCheck();
+    }
+    setInterval(game,15);
+
+    function contactCheck (){
+      var farkX = YKx-x;
+      var farkY = YKy-y;
+      if(farkX<5 || farkY<5){
+
+      }
+    }
+
+    function reset() {
+      clearInterval(this.timer);
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <!-- Own CSS -->
+
+    <title></title>
+  </head>
+  <body>
+
+
+    <script>
+    //meta
+    meta1 = document.createElement("meta");
+    meta1.name = "viewport";
+    meta1.content = "width=device-width, initial-scale=1, shrink-to-fit=no";
+    //head links
+    //head link1-header icon
+    var link1 = document.createElement("link");
+    link1.rel = "icon";
+    link1.type = "image/gif/png/ico";
+    link1.href = "images/furn_logo3.ico";
+    link1.style.background = "transperent";
+    //link2-own class
+
+    //creting vaariables
+    var div1 = document.createElement("div");
+    var div2 =document.createElement("div");
+    var div3 =document.createElement("div");
+    var txt = document.createTextNode("emre");
+    var body = document.querySelector("body");
+    var head = document.querySelector("head");
+    var title = document.createElement("title");
+    var titleText = document.createTextNode("KÖŞK MOBİLYA TASARIM");
+
+    //creating sub variables
+    var div11 = document.createElement("div");
+    var div111 = document.createElement("div");
+
+
+    //element attributes
+    div1.className = "container-fluid giris";
+    div11.className = "sticky-top mb-5";
+    div111.className = "topnav";
+
+
+    //appendChild operations
+    head.appendChild(link1);
+    head.appendChild(meta1);
+    head.appendChild(title);
+    title.appendChild(titleText);
+    body.appendChild(div1);
+    body.appendChild(div2);
+    body.appendChild(div3);
+
+    div1.appendChild(div11);
+    div11.appendChild(div111);
+
+    //styling
+    div2.style.height = "300px";
+    div2.innerHTML = "Bugün hava çok güzel";
+
+
+    //objects,constructors and functions
+
+    var navElements = [
+      ["#start","Anasayfa"],
+      ["#ozel_tasarim","Özel Mobilya Tasarım"],
+      ["#mutfak_dekorasyon","Mutfak dekorasyonu"],
+      ["#ozel_tasarim","Tasarım projelendirme"],
+      ["#tasarim_projelendirme","Anahtar Teslim Tadilat"],
+      ["#isyeri","İşyeri dekorasyonu"],
+      ["#kapi","Masif Ahşap Kapı"],
+      ["#tumisler","İletişim"]
+    ];
+    var aArray = [];
+    function navElementsCreation(){
+        for (var i = 0; i < navElements.length; i++) {
+            aArray.push(document.createElement("a"));
+              div111.appendChild(aArray[i]);
+        }
+        for (var i = 0; i < aArray.length; i++) {
+          aArray[i].className = "mx-3";
+          aArray[i].innerHTML = navElements[i][1];
+          aArray[i].href = navElements[i][0];
+        }
+    }
+    navElementsCreation();
+    console.log(aArray);
+    console.log(div111);
+
+
+
+
+    </script>
+  </body>
+</html>
